@@ -86,7 +86,7 @@ func testAndDeploy() {
 func deploy() {
 	svc := elasticbeanstalk.New(
 		session.New(),
-		&aws.Config{Region: aws.String("us-east-1")},
+		&aws.Config{Region: aws.String("ap-southeast-1")},
 	)
 
 	params := &elasticbeanstalk.UpdateEnvironmentInput{
