@@ -99,7 +99,7 @@ func deploy() {
 	if err != nil {
 		// Print the error, cast err to awserr.Error to get the Code and
 		// Message from an error.
-		log.Println(err)
+		log.Println("Error when update env: ", err)
 		return
 	}
 
