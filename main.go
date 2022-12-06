@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"os/exec"
 	"path/filepath"
 
@@ -90,9 +91,9 @@ func deploy() {
 	)
 
 	params := &elasticbeanstalk.UpdateEnvironmentInput{
-		ApplicationName: aws.String("invoicer"),
-		EnvironmentId:   aws.String("e-g3ixfqtddq"),
-		VersionLabel:    aws.String("invoicer-api"),
+		ApplicationName: aws.String(os.Getenv("INVOICER_APPLICATION_NAME")),
+		EnvironmentId:   aws.String(os.Getenv("INVOICER_ENVIRONMENT_ID")),
+		VersionLabel:    aws.String(os.Getenv("INVOICER_VERSION_LABEL")),
 	}
 	resp, err := svc.UpdateEnvironment(params)
 
